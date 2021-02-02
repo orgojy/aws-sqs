@@ -8,8 +8,10 @@ cloud:
       queue:
         url: https://sqs.ap-northeast-2.amazonaws.com/2637652xxxxx/z-standard-queue
     region:
+      auto: false
       static: ap-northeast-2
     credentials:
       instance-profile: true
     stack:
       auto: false
+
