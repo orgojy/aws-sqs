@@ -13,11 +13,12 @@ repositories {
 }
 
 ext {
-	set('springCloudVersion', "Hoxton.SR9")
+	set('springCloudVersion', "Hoxton.SR6")
 }
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.cloud:spring-cloud-starter-aws-messaging'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
