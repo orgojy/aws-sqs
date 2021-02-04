@@ -8,7 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SqsMessageReceiver {
     @SqsListener(value = "${cloud.aws.sqs.queue.url}", deletionPolicy = SqsMessageDeletionPolicy.NEVER)
-    public void receive(String message, @Header("SenderId") String senderId) {
+    public void receiveForQueueUrl(String message, @Header("SenderId") String senderId) {
+        System.out.println(String.format("%s %s", message, senderId));
+    }
+
+    @SqsListener(value = "z-standard-queue", deletionPolicy = SqsMessageDeletionPolicy.NEVER)
+    public void receiveForQueueName(String message, @Header("SenderId") String senderId) {
         System.out.println(String.format("%s %s", message, senderId));
     }
 }
