@@ -7,11 +7,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class SqsMessageReceiver {
+    /**
+     * Using SQS Queue URL, we can set the name of queue.
+     */
     @SqsListener(value = "${cloud.aws.sqs.queue.url}", deletionPolicy = SqsMessageDeletionPolicy.NEVER)
     public void receiveForQueueUrl(String message, @Header("SenderId") String senderId) {
         System.out.println(String.format("%s %s", message, senderId));
     }
 
+    /**
+     * Using name of SQS Queue, we can set the name of queue.
+     */
     @SqsListener(value = "z-standard-queue", deletionPolicy = SqsMessageDeletionPolicy.NEVER)
     public void receiveForQueueName(String message, @Header("SenderId") String senderId) {
         System.out.println(String.format("%s %s", message, senderId));
