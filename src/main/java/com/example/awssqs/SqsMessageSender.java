@@ -18,4 +18,8 @@ public class SqsMessageSender {
     public void send(String message) {
         queueMessagingTemplate.send(amazonSqsProperties.getUrl(), MessageBuilder.withPayload(message).build());
     }
+
+    public void convertAndSend(SqsMessage message) {
+        queueMessagingTemplate.convertAndSend(amazonSqsProperties.getUrl(), message);
+    }
 }
