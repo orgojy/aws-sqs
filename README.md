@@ -52,7 +52,8 @@ dependencyManagement {
 
 ## 4. SQS Message Sender 구현
 
-* SQS message를 보내기 위한 래핑 클래스인 'QueueMessagingTemplate'를 빈 설정
+* SQS message를 보내기 위한 래핑 클래스인 'QueueMessagingTemplate' 를 빈 설정
+* 'QueueMessagingTemplate'는 Spring 프레임워크의 Cloud 라이브러리에서 제공
 
 ``` java
 @Configuration
